@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cemil'in Yeri — İndir</title>
+<meta name="description" content="Cemil'in Yeri veresiye takip uygulamasını Android telefonunuza indirin.">
+<meta name="theme-color" content="#F4EFE6">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 108 108'%3E%3Crect width='108' height='108' rx='30' fill='%23A13A1C'/%3E%3Cg stroke='%23FFF8F2'%3E%3Cpath d='M74.5,33.8C70,36.2 66.5,37 63,37A17,17 0,0 0,63 71C66.5,71 70,71.8 74.5,74.2' fill='none' stroke-width='11'/%3E%3Cpath d='M46,54H32' stroke-width='9.5' stroke-linecap='round'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --kagit: #F4EFE6; --kart: #FFFDF9; --cizgi: #E2D9CA;
+    --murekkep: #1D1A16; --soluk: #6B6357; --kiremit: #A13A1C; --kiremit-yazi: #FFF8F2;
+    --vurgu: #1D1A16; --vurgu-yazi: #F7F1E7; --vurgu-soluk: #A79E90; --aksan: #F0A07F;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --kagit: #13110E; --kart: #1C1915; --cizgi: #34302A;
+      --murekkep: #EDE6DA; --soluk: #B3A99B; --kiremit: #F0A07F; --kiremit-yazi: #4A1605;
+      --vurgu: #241F19;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--kagit); color: var(--murekkep);
+    font: 500 16px/1.55 Manrope, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  .sayfa { max-width: 560px; margin: 0 auto; padding: 28px 16px 48px; }
+  .ust { display: flex; align-items: center; gap: 14px; }
+  .logo { width: 56px; height: 56px; border-radius: 17px; background: var(--kiremit); display: grid; place-items: center; flex: none; }
+  .logo svg { width: 36px; height: 36px; color: var(--kiremit-yazi); }
+  .etiket { font-weight: 800; font-size: 11px; letter-spacing: 1.4px; text-transform: uppercase; color: var(--soluk); margin: 0; }
+  h1 { font-family: Fraunces, Georgia, serif; font-weight: 600; font-size: 30px; line-height: 1.1; letter-spacing: -0.5px; margin: 2px 0 0; }
+  h2 { font-family: Fraunces, Georgia, serif; font-weight: 600; font-size: 22px; letter-spacing: -0.3px; margin: 0 0 14px; }
+  .kart { background: var(--kart); border: 1px solid var(--cizgi); border-radius: 16px; padding: 20px; margin-top: 16px; }
+  .indir-kart { background: var(--vurgu); border: 0; color: var(--vurgu-yazi); padding: 22px 20px 20px; margin-top: 24px; }
+  .indir-kart .etiket { color: var(--vurgu-soluk); display: flex; align-items: center; gap: 8px; }
+  .indir-kart .etiket::before { content: ""; width: 14px; height: 2px; background: var(--aksan); }
+  .surum { font-family: Fraunces, Georgia, serif; font-size: 40px; font-weight: 600; letter-spacing: -0.5px; line-height: 1.15; margin: 6px 0 2px; }
+  .bilgi { color: var(--vurgu-soluk); font-size: 14px; margin: 0; }
+  .fis { border: 0; border-top: 1px dashed rgba(167,158,144,.5); margin: 18px 0; }
+  .dugme {
+    display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%;
+    background: var(--kiremit); color: var(--kiremit-yazi); text-decoration: none;
+    font-weight: 800; font-size: 18px; padding: 17px 20px; border-radius: 14px;
+    transition: transform .09s ease, filter .2s ease;
+  }
+  .dugme:active { transform: scale(.97); filter: brightness(.92); }
+  .dugme svg { width: 22px; height: 22px; fill: currentColor; }
+  .indir-kart .dugme { background: #A13A1C; color: #FFF8F2; }
+  .not { font-size: 13px; color: var(--vurgu-soluk); margin: 12px 0 0; text-align: center; }
+  ol.adimlar { list-style: none; counter-reset: a; margin: 0; padding: 0; }
+  ol.adimlar li { counter-increment: a; display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; padding: 12px 0; border-top: 1px solid var(--cizgi); }
+  ol.adimlar li:first-child { border-top: 0; padding-top: 0; }
+  ol.adimlar li::before {
+    content: counter(a); width: 34px; height: 34px; border-radius: 11px; display: grid; place-items: center;
+    font-family: Fraunces, Georgia, serif; font-weight: 600; font-size: 17px;
+    color: var(--kiremit); background: color-mix(in srgb, var(--kiremit) 12%, transparent);
+  }
+  ol.adimlar b { display: block; font-weight: 800; }
+  ol.adimlar span { color: var(--soluk); font-size: 15px; }
+  .ipucu { font-weight: 700; background: color-mix(in srgb, var(--murekkep) 7%, transparent); padding: 1px 6px; border-radius: 6px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+  .uyari { margin-top: 10px; padding: 12px 14px; border-radius: 12px; border-left: 4px solid #B42318;
+    background: color-mix(in srgb, #B42318 8%, var(--kart)); }
+  .uyari b { display: block; font-weight: 800; margin-bottom: 2px; }
+  ul.yenilik { margin: 0; padding-left: 20px; }
+  ul.yenilik li { margin: 4px 0; }
+  .qr { display: none; }
+  .qr-icerik { display: flex; gap: 18px; align-items: center; }
+  .qr-kod { background: #fff; padding: 10px; border-radius: 12px; flex: none; line-height: 0; }
+  @media (hover: hover) and (pointer: fine) { .qr { display: block; } }
+  details summary { cursor: pointer; font-weight: 800; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+  details summary::-webkit-details-marker { display: none; }
+  details summary::after { content: "+"; font-size: 22px; color: var(--soluk); }
+  details[open] summary::after { content: "−"; }
+  details p { color: var(--soluk); margin: 10px 0 0; font-size: 15px; }
+  .alt { text-align: center; color: var(--soluk); font-size: 13px; margin-top: 28px; }
+</style>
+</head>
+<body>
+<main class="sayfa">
+  <header class="ust">
+    <div class="logo" aria-hidden="true">
+      <svg viewBox="-32 -32 64 64" stroke="currentColor" fill="none">
+        <g id="cy-g" transform="translate(-53.6,-54)">
+          <path id="cy-yay" stroke-width="11" d=""/>
+          <path id="cy-c" d="M74.5,33.8C70,36.2 66.5,37 63,37A17,17 0,0 0,63 71C66.5,71 70,71.8 74.5,74.2" stroke-width="11"/>
+          <line id="cy-k" x1="46" y1="54" x2="32" y2="54" stroke-width="9.5" stroke-linecap="round"/>
+        </g>
+      </svg>
+    </div>
+    <div>
+      <p class="etiket">Veresiye defteri · Android</p>
+      <h1>Cemil'in Yeri</h1>
+    </div>
+  </header>
+
+  <section class="kart indir-kart">
+    <p class="etiket">Son sürüm</p>
+    <p class="surum">v0.25.0</p>
+    <p class="bilgi">21 Kasım 2026 · 2,5 MB · Android 8 ve üzeri</p>
+    <hr class="fis">
+    <a class="dugme" href="CemilinYeri.apk" download="CemilinYeri-v0.25.0.apk">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 4h2v9.2l3.6-3.6 1.4 1.4-6 6-6-6 1.4-1.4 3.6 3.6zM5 18h14v2H5z"/></svg>
+      Uygulamayı indir
+    </a>
+    <p class="not">Basit · Güvenli · Hızlı</p>
+  </section>
+
+  <section class="kart">
+    <h2>Nasıl kurulur?</h2>
+    <ol class="adimlar">
+      <li><div><b>“Uygulamayı indir”e dokunun</b><span>Telefon “Bu dosya zararlı olabilir” diye sorarsa <span class="ipucu">Yine de indir</span> deyin.</span></div></li>
+      <li><div><b>İnen dosyayı açın</b><span>Bildirimdeki <span class="ipucu">Aç</span> düğmesine ya da “İndirilenler” klasöründeki <span class="ipucu">CemilinYeri</span> dosyasına dokunun.</span></div></li>
+      <li><div><b>İzin verin</b><span>“Bu kaynaktan uygulama yüklenmesine izin verilmiyor” çıkarsa <span class="ipucu">Ayarlar</span>’a dokunup <span class="ipucu">Bu kaynaktan izin ver</span> düğmesini açın. Sonra geri dönün ve dosyaya <b style="display:inline">bir kez daha</b> dokunun.</span></div></li>
+      <li><div><b><span class="ipucu">Yükle</span>’ye dokunun</b><span>Bitince <span class="ipucu">Aç</span> deyin; uygulama ana ekranda da görünür.</span>
+        <div class="uyari"><b>“Güvenli olmayan uygulama engellendi” çıkarsa</b>
+        <span><span class="ipucu">Anladım</span>’a basmayın — kurulum iptal olur. Bunun yerine <span class="ipucu">Diğer ayrıntılar</span>’a, sonra <span class="ipucu">Yine de yükle</span>’ye dokunun. Bu uyarı Play Store dışından kurulan her uygulamada çıkar.</span></div>
+      </div></li>
+    </ol>
+  </section>
+
+  <section class="kart">
+    <h2>Bu sürümde neler var?</h2>
+    <p class="etiket" style="margin:0 0 6px">Değişti</p>
+    <ul class="yenilik"><li>Yeni, daha kaliteli sesler: düğmeye basma, PIN tuşu, PIN silme ve PIN başarılı</li><li>PIN konuluyken açılışta CY logosu da büyüyerek gelir, ardından PIN tuşları belirir</li></ul>
+    <p class="etiket" style="margin:14px 0 6px">Düzeltildi</p>
+    <ul class="yenilik"><li>PIN başarılı sesinin yarıda kesilmesi</li></ul>
+  </section>
+
+  <section class="kart qr">
+    <div class="qr-icerik">
+      <div class="qr-kod" id="qr"></div>
+      <div>
+        <h2 style="margin-bottom:6px">Telefonla açın</h2>
+        <span style="color:var(--soluk)">Bu sayfayı bilgisayarda açtıysanız, telefonun kamerasıyla bu kodu okutun.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="kart">
+    <details>
+      <summary>Güncelleme nasıl yapılır?</summary>
+      <p>Bu sayfadan yeni sürümü indirip aynı şekilde kurmak yeterli. Uygulama eski sürümün üzerine kurulur; müşteriler ve kayıtlar silinmez.</p>
+    </details>
+  </section>
+
+  <p class="alt">Cemil'in Yeri v0.25.0</p>
+</main>
+<script>
+  // Logo animasyonu (uygulamadaki yükleniyor animasyonunun aynısı): çizgi O çizmeye çalışır, C'de kalır;
+  // C'nin sırtından kuyruk çıkar, şekil dönüp Y olur, sonra tek noktaya çekilip baştan başlar.
+  (function () {
+    try {
+      if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      var g = document.getElementById("cy-g"), yayEl = document.getElementById("cy-yay"),
+          cEl = document.getElementById("cy-c"), kEl = document.getElementById("cy-k");
+      if (!g || !cEl.getTotalLength) return;
+      var SURE = 4200, YAY = Math.PI * 17, TOPLAM = cEl.getTotalLength(), UC = (TOPLAM - YAY) / 2;
+      function egri(x1, y1, x2, y2) {
+        function b(s, a1, a2) { var u = 1 - s; return 3 * u * u * s * a1 + 3 * u * s * s * a2 + s * s * s; }
+        return function (t) {
+          if (t <= 0) return 0; if (t >= 1) return 1;
+          var lo = 0, hi = 1, s = t;
+          for (var i = 0; i < 24; i++) { s = (lo + hi) / 2; if (b(s, x1, x2) < t) lo = s; else hi = s; }
+          return b(s, y1, y2);
+        };
+      }
+      var yumusak = egri(0.4, 0, 0.2, 1), hizlanan = egri(0.5, 0, 0.9, 0.6),
+          geriYaylanan = egri(0.3, 0, 0.15, 1.25), ortaYumusak = egri(0.65, 0, 0.35, 1);
+      function ara(ms, bas, son, e) { return e(Math.min(1, Math.max(0, (ms - bas) / (son - bas)))); }
+      var baslangic = null;
+      function kare(simdi) {
+        if (baslangic === null) baslangic = simdi;
+        var ms = (simdi - baslangic) % SURE;
+        var yay = 330 * ara(ms, 0, 950, ortaYumusak) - 150 * ara(ms, 1000, 1400, geriYaylanan);
+        var uclar = ara(ms, 1400, 1750, yumusak), kuyrukCik = ara(ms, 1650, 2100, yumusak);
+        var yDonus = ara(ms, 2150, 2850, ortaYumusak);
+        var kuyrukGir = ara(ms, 3550, 3800, hizlanan), uclarGir = ara(ms, 3650, 3900, hizlanan);
+        var bosal = ara(ms, 3800, 4200, hizlanan), donCekil = ara(ms, 3550, 4200, hizlanan);
+        var kuyruk = kuyrukCik * (1 - kuyrukGir), uc = UC * uclar * (1 - uclarGir);
+        var cBas = UC - uc + (YAY + uc) * bosal, cSon = UC + YAY + uc;
+        g.setAttribute("transform", "rotate(" + (-90 * yDonus - 90 * donCekil) + ") translate(" + (-(63 - 9.4 * kuyruk)) + ",-54)");
+        if (ms < 1400) {
+          yay = Math.max(0, yay);
+          var a = (270 - yay) * Math.PI / 180;
+          yayEl.setAttribute("d", yay > 0.5 ? "M63,37A17,17 0 " + (yay > 180 ? 1 : 0) + ",0 " + (63 + 17 * Math.cos(a)) + "," + (54 + 17 * Math.sin(a)) : "");
+          cEl.style.visibility = "hidden";
+        } else {
+          yayEl.setAttribute("d", "");
+          cEl.style.visibility = cBas < cSon ? "visible" : "hidden";
+          cEl.style.strokeDasharray = (cSon - cBas) + " " + (TOPLAM * 2);
+          cEl.style.strokeDashoffset = -cBas;
+        }
+        kEl.style.visibility = kuyruk > 0.01 ? "visible" : "hidden";
+        kEl.setAttribute("x2", 46 - 14 * kuyruk);
+        requestAnimationFrame(kare);
+      }
+      requestAnimationFrame(kare);
+    } catch (e) {}
+  })();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+  try {
+    if (window.QRCode && matchMedia("(hover: hover) and (pointer: fine)").matches) {
+      new QRCode(document.getElementById("qr"), { text: location.href.split("#")[0], width: 132, height: 132, colorDark: "#1D1A16", colorLight: "#ffffff" });
+    }
+  } catch (e) {}
+</script>
+</body>
+</html>
